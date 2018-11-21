@@ -83,8 +83,8 @@ class Login extends React.Component<LoginProps, LoginState> {
 		e.preventDefault();
 		try {
 			const res = await axios.post('/api/login', this.state);
-            Cookie.set('token', res.data.token);
-            this.props.history.push('/');
+			Cookie.set('token', res.data.token);
+			this.props.history.push('/');
 		} catch (error) {
 			alert(error.response.data.message);
 		}
@@ -110,7 +110,7 @@ class Login extends React.Component<LoginProps, LoginState> {
 						<img src={require('../../assets/logo.svg')} />
 					</Link>
 				</Logo>
-				<h1>注册膜法商城</h1>
+				<h1>登录膜法商城</h1>
 				<LoginBox onSubmit={this.onSubmit}>
 					<label>
 						请输入您的用户名
