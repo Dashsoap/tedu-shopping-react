@@ -69,30 +69,45 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 		this.state = {};
 	}
 
+	/** 用户点击登录按钮 */
 	onLogin = (e: React.MouseEvent) => {
 		this.props.history.push('/login');
 	};
 
+	/** 用户点击注册按钮 */
+	onRegister = (e: React.MouseEvent) => {
+		this.props.history.push('/register');
+	};
+
+	/** 判断在当前路由下是否显示Header */
+	get visible() {
+		const pathList = [ '/login', '/register' ];
+		return !pathList.includes(this.props.location.pathname);
+	}
+
 	public render() {
 		return (
-			<Container>
-				<Logo>
-					<img src={require('../assets/logo.svg')} />
-					<h1>膜法商城</h1>
-				</Logo>
-				<SearchInput>
-					<input placeholder="搜索..." />
-					<FontAwesomeIcon className="icon" icon="search" />
-				</SearchInput>
-				<ButtonGroup>
-					<Button color="primary" flat>
-						注册
-					</Button>
-					<Button color="primary" onClick={this.onLogin}>
-						登录
-					</Button>
-				</ButtonGroup>
-			</Container>
+			this.visible && (
+				<Container>
+					<Logo>
+						<img src={require('../assets/logo.svg')} />
+						<h1>膜法商城</h1>
+					</Logo>
+					<SearchInput>
+						<input placeholder="搜索..." />
+						<FontAwesomeIcon className="icon" icon="search" />
+					</SearchInput>
+					<ButtonGroup>
+						<Button color="primary" flat onClick={this.onRegister}>
+							<span style={{ marginRight: '.3em' }}>注册</span>
+							<FontAwesomeIcon icon="registered" />
+						</Button>
+						<Button color="primary" onClick={this.onLogin}>
+							登录
+						</Button>
+					</ButtonGroup>
+				</Container>
+			)
 		);
 	}
 }
