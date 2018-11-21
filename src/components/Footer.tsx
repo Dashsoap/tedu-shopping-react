@@ -1,24 +1,25 @@
 import * as React from 'react';
+import styled from 'styled-components';
+import { colors } from '../../theme';
 
-export interface FooterProps {
-}
+const Container = styled.div`
+	color: ${colors.default};
+	text-align: center;
+	padding: 1em;
+`;
 
-export interface FooterState {
-}
+export interface FooterProps {}
+
+export interface FooterState {}
 
 export default class Footer extends React.Component<FooterProps, FooterState> {
-  constructor(props: FooterProps) {
-    super(props);
+	constructor(props: FooterProps) {
+		super(props);
 
-    this.state = {
-    }
-  }
+		this.state = {};
+	}
 
-  public render() {
-    return (
-      <div>
-        footer
-      </div>
-    );
-  }
+	public render() {
+		return <Container>&copy;2018 Magic of HAAAA</Container>;
+	}
 }

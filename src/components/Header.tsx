@@ -74,9 +74,9 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 		this.props.history.push('/login');
 	};
 
-	/** 用户点击注册按钮 */
+	/** 用户点击购物车按钮 */
 	onRegister = (e: React.MouseEvent) => {
-		this.props.history.push('/register');
+		this.props.history.push('/cart');
 	};
 
 	/** 判断在当前路由下是否显示Header */
@@ -99,7 +99,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
 					</SearchInput>
 					<ButtonGroup>
 						<Button color="primary" flat onClick={this.onRegister}>
-							<span style={{ marginRight: '.3em' }}>注册</span>
+							<span style={{ marginRight: '.3em' }}>购物车</span>
 							<FontAwesomeIcon icon="registered" />
 						</Button>
 						<Button color="primary" onClick={this.onLogin}>
